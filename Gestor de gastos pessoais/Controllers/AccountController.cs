@@ -2,6 +2,8 @@
 using Gestor_de_gastos_pessoais_domain.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace Gestor_de_gastos_pessoais.Controllers
 {
@@ -32,6 +34,10 @@ namespace Gestor_de_gastos_pessoais.Controllers
 
             if (result)
             {
+              
+
+
+
                 if (string.IsNullOrEmpty(loginVM.ReturnUrl))
                 {
                     return RedirectToAction("Index", "Home");
