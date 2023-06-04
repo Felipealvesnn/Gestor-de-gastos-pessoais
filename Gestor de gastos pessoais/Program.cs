@@ -1,16 +1,25 @@
-using Microsoft.AspNetCore.Authorization;
+using Gestor_de_gastos_pessoais_data.Contexto;
+using Gestor_de_gastos_pessoais_domain.Interfaces;
+using Gestor_de_gastos_pessoais_infra_ioc;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddAuthorization(options =>
-{
-    options.FallbackPolicy = new AuthorizationPolicyBuilder()
-        .RequireAuthenticatedUser()
-        .Build();
-});
+
+builder.Services.ConfiguraçãoServices(builder.Configuration);
+
+
+builder.Services.AddMemoryCache();
+
+builder.Services.AddSession();
+
+// iniciano identity no banco
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
 
 var app = builder.Build();
@@ -33,10 +42,24 @@ app.UseRouting();
 app.UseSession();
 
 app.UseAuthentication();
-app.UseAuthorization( );
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+CriarPerfisUsuarios(app);
+
 app.Run();
+
+
+void CriarPerfisUsuarios(WebApplication app)
+{
+    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+    using (var scope = scopedFactory.CreateScope())
+    {
+        var service = scope.ServiceProvider.GetService<ISeedUserRoleInitial>();
+        service?.SeedRole();
+        service?.SeedUser();
+    }
+}

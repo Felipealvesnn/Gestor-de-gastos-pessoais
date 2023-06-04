@@ -6,6 +6,7 @@ using System.Diagnostics;
 namespace Gestor_de_gastos_pessoais.Controllers
 {
     [Authorize]
+    //[Authorize("Admin")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -19,6 +20,8 @@ namespace Gestor_de_gastos_pessoais.Controllers
         {
             return View();
         }
+
+      
 
         public IActionResult Privacy()
         {

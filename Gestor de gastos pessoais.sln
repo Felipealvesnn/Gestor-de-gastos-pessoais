@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestor de gastos pessoais", "Gestor de gastos pessoais\Gestor de gastos pessoais.csproj", "{5F536DFF-28A8-4037-9E21-6305E0FD8FB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestor_de_gastos_pessoais_ui", "Gestor de gastos pessoais\Gestor_de_gastos_pessoais_ui.csproj", "{5F536DFF-28A8-4037-9E21-6305E0FD8FB2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestor_de_gastos_pessoais_infra_ioc", "Gestor de gastos pessoais infra_ioc\Gestor_de_gastos_pessoais_infra_ioc.csproj", "{B0962607-7238-4ABB-A3D2-E9CC6220F1F5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestor_de_gastos_pessoais_data", "Gestor_de_gastos_pessoais_data\Gestor_de_gastos_pessoais_data.csproj", "{D0A02CA9-6A67-457E-B3D7-9DD74610087B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestor_de_gastos_pessoais_domain", "Gestor_de_gastos_pessoais_domain\Gestor_de_gastos_pessoais_domain.csproj", "{32D664A3-7672-43EA-A130-67DA36B61E2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{5F536DFF-28A8-4037-9E21-6305E0FD8FB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F536DFF-28A8-4037-9E21-6305E0FD8FB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F536DFF-28A8-4037-9E21-6305E0FD8FB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0962607-7238-4ABB-A3D2-E9CC6220F1F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0962607-7238-4ABB-A3D2-E9CC6220F1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0962607-7238-4ABB-A3D2-E9CC6220F1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0962607-7238-4ABB-A3D2-E9CC6220F1F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0A02CA9-6A67-457E-B3D7-9DD74610087B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0A02CA9-6A67-457E-B3D7-9DD74610087B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0A02CA9-6A67-457E-B3D7-9DD74610087B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0A02CA9-6A67-457E-B3D7-9DD74610087B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D664A3-7672-43EA-A130-67DA36B61E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D664A3-7672-43EA-A130-67DA36B61E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D664A3-7672-43EA-A130-67DA36B61E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D664A3-7672-43EA-A130-67DA36B61E2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
