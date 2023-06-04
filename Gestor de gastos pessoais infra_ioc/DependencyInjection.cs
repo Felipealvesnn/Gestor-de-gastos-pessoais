@@ -32,6 +32,10 @@ namespace Gestor_de_gastos_pessoais_infra_ioc
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromHours(4);
+            });
 
             services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
             services.AddScoped<IAuthenticate, AuthenticateService>();
