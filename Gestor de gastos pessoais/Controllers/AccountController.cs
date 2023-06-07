@@ -1,9 +1,6 @@
 ﻿using Gestor_de_gastos_pessoais.VieswsModel;
-using Gestor_de_gastos_pessoais_domain.Interfaces;
-using Microsoft.AspNetCore.Identity;
+using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 
 namespace Gestor_de_gastos_pessoais.Controllers
 {
@@ -30,9 +27,9 @@ namespace Gestor_de_gastos_pessoais.Controllers
             //if (!ModelState.IsValid)
             //    return View(loginVM);
             var result = await _authentication.Authenticate(loginVM.UserName, loginVM.Password);
+           
 
-
-            if (result)
+            if (result != null)
             {
               
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gestor_de_gastos_pessoais_domain.Interfaces
+namespace Gestor_de_gastos_pessoais_data.Domain.Interfaces
 {
     public interface ISeedUserRoleInitial
     {

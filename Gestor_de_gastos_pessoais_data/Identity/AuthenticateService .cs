@@ -1,10 +1,5 @@
-﻿using Gestor_de_gastos_pessoais_domain.Interfaces;
+﻿using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gestor_de_gastos_pessoais_data.Identity
 {
@@ -19,10 +14,17 @@ namespace Gestor_de_gastos_pessoais_data.Identity
             _SignInmanager = signInManager;
         }
 
-        public async Task<bool> Authenticate(string email, string password)
+        public async Task<IdentityUser?> Authenticate(string UserNaame, string password)
         {
-            var result = await _SignInmanager.PasswordSignInAsync(email.ToUpper(), password, false, lockoutOnFailure: false);
-            return result.Succeeded;
+            var user = await _usermanager.FindByNameAsync(UserNaame.ToUpper());
+          
+            if( user != null) {
+
+                var result = await _SignInmanager.PasswordSignInAsync(user, password, false, lockoutOnFailure: false);
+                return user;
+            }
+
+            return null;
         }
 
         public async Task<bool> RegisterUser(string email,string usename, string password)
@@ -32,6 +34,7 @@ namespace Gestor_de_gastos_pessoais_data.Identity
                 UserName = usename.ToUpper(),
                 Email = email,
             };
+            
             var result = await _usermanager.CreateAsync(aplicacaodousuario, password);
             if (result.Succeeded)
             {

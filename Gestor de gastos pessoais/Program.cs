@@ -1,5 +1,5 @@
 using Gestor_de_gastos_pessoais_data.Contexto;
-using Gestor_de_gastos_pessoais_domain.Interfaces;
+using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
 using Gestor_de_gastos_pessoais_infra_ioc;
 using Microsoft.AspNetCore.Identity;
 

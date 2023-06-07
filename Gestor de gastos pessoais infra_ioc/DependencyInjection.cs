@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Gestor_de_gastos_pessoais_data.Contexto;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Gestor_de_gastos_pessoais_data.Identity;
-using Gestor_de_gastos_pessoais_domain.Interfaces;
+using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
 
 namespace Gestor_de_gastos_pessoais_infra_ioc
 {
