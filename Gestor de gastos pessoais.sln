@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestor_de_gastos_pessoais_i
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestor_de_gastos_pessoais_data", "Gestor_de_gastos_pessoais_data\Gestor_de_gastos_pessoais_data.csproj", "{D0A02CA9-6A67-457E-B3D7-9DD74610087B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestor_de_gastos_pessoais_domain", "Gestor_de_gastos_pessoais_domain\Gestor_de_gastos_pessoais_domain.csproj", "{32D664A3-7672-43EA-A130-67DA36B61E2A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{D0A02CA9-6A67-457E-B3D7-9DD74610087B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0A02CA9-6A67-457E-B3D7-9DD74610087B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0A02CA9-6A67-457E-B3D7-9DD74610087B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32D664A3-7672-43EA-A130-67DA36B61E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32D664A3-7672-43EA-A130-67DA36B61E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32D664A3-7672-43EA-A130-67DA36B61E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32D664A3-7672-43EA-A130-67DA36B61E2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

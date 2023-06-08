@@ -15,7 +15,7 @@ namespace Gestor_de_gastos_pessoais_data.Identity
             _SignInmanager = signInManager;
         }
 
-        public async Task<IdentityUser?> Authenticate(string UserNaame, string password)
+        public async Task<UsuarioSistema?> Authenticate(string UserNaame, string password)
         {
             var user = await _usermanager.FindByNameAsync(UserNaame.ToUpper());
           

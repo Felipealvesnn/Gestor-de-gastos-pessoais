@@ -1,5 +1,6 @@
 using Gestor_de_gastos_pessoais_data.Contexto;
 using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
+using Gestor_de_gastos_pessoais_data.Domain.Models;
 using Gestor_de_gastos_pessoais_infra_ioc;
 using Microsoft.AspNetCore.Identity;
 
@@ -17,9 +18,11 @@ builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 
 // iniciano identity no banco
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-.AddEntityFrameworkStores<AppDbContext>()
-.AddDefaultTokenProviders();
+builder.Services.AddIdentity<UsuarioSistema, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddScoped<UserManager<UsuarioSistema>>();
 
 
 var app = builder.Build();

@@ -25,8 +25,9 @@ namespace Gestor_de_gastos_pessoais_data.EntitiesConfiguration
             builder.Property(g => g.Data)
                 .IsRequired();
 
-            builder.Property(g => g.TipogastoId)
-                .IsRequired();
+            builder.HasOne(g => g.LocalGasto)
+                .WithMany()
+                .HasForeignKey(g => g.LocalgastoId);
 
             builder.HasOne(g => g.tipoGastos)
                 .WithMany()
@@ -37,6 +38,7 @@ namespace Gestor_de_gastos_pessoais_data.EntitiesConfiguration
                 .HasForeignKey(g => g.UserId);
         }
     }
+
 
     public class TipoGastosConfiguration : IEntityTypeConfiguration<TipoGastos>
     {
@@ -49,5 +51,24 @@ namespace Gestor_de_gastos_pessoais_data.EntitiesConfiguration
                 .IsRequired();
         }
     }
+    public class LocalGastoConfiguration : IEntityTypeConfiguration<LocalGasto>
+    {
+        public void Configure(EntityTypeBuilder<LocalGasto> builder)
+        {
+            builder.HasKey(l => l.id);
+
+            builder.Property(l => l.Descricao)
+                .HasMaxLength(100)
+                .IsRequired();
+
+
+            builder.Property(l => l.Cnhpj)
+                .HasMaxLength(20);
+
+            builder.Property(l => l.Telefone)
+                .HasMaxLength(20);
+        }
+    }
+
 
 }

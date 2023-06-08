@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Gestor de gastos pessoais infra_ioc\Gestor_de_gastos_pessoais_infra_ioc.csproj" />
-    <ProjectReference Include="..\Gestor_de_gastos_pessoais_domain\Gestor_de_gastos_pessoais_domain.csproj" />
   </ItemGroup>
 
 </Project>
