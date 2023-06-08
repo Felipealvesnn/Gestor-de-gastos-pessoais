@@ -1,14 +1,15 @@
 ﻿using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
+using Gestor_de_gastos_pessoais_data.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace Gestor_de_gastos_pessoais_data.Identity
 {
     public class AuthenticateService: IAuthenticate
     {
-        private readonly UserManager<IdentityUser> _usermanager;
-        private readonly SignInManager<IdentityUser> _SignInmanager;
+        private readonly UserManager<UsuarioSistema> _usermanager;
+        private readonly SignInManager<UsuarioSistema> _SignInmanager;
 
-        public AuthenticateService(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AuthenticateService(UserManager<UsuarioSistema> userManager, SignInManager<UsuarioSistema> signInManager)
         {
             _usermanager = userManager;
             _SignInmanager = signInManager;
@@ -29,7 +30,7 @@ namespace Gestor_de_gastos_pessoais_data.Identity
 
         public async Task<bool> RegisterUser(string email,string usename, string password)
         {
-            var aplicacaodousuario = new IdentityUser
+            var aplicacaodousuario = new UsuarioSistema
             {
                 UserName = usename.ToUpper(),
                 Email = email,

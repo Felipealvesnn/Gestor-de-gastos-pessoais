@@ -20,8 +20,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Gestor_de_gastos_pessoais_domain\Gestor_de_gastos_pessoais_domain.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -27,8 +27,8 @@ namespace Gestor_de_gastos_pessoais.Controllers
             //if (!ModelState.IsValid)
             //    return View(loginVM);
             var result = await _authentication.Authenticate(loginVM.UserName, loginVM.Password);
-           
 
+           
             if (result != null)
             {
               

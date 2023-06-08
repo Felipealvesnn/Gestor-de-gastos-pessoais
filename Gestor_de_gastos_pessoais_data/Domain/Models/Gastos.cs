@@ -13,9 +13,10 @@ namespace Gestor_de_gastos_pessoais_data.Domain.Models
         public string? Descricao { get; set; }
         public double Valor { get; set; }
         public DateTime Data { get; set; }
-        public string TipogastoId { get; set; }
+        public string? TipogastoId { get; set; }
         public TipoGastos? tipoGastos { get; set; }
         public string UserId { get; set; } // Chave estrangeira
-        public IdentityUser User { get; set; }
+        public UsuarioSistema User { get; set; }
+        
     }
 }
