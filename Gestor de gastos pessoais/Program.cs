@@ -1,5 +1,5 @@
 using Gestor_de_gastos_pessoais_data.Contexto;
-using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
+using Gestor_de_gastos_pessoais_data.Domain.Interfaces.InterfacesIdentity;
 using Gestor_de_gastos_pessoais_data.Domain.Models;
 using Gestor_de_gastos_pessoais_infra_ioc;
 using Microsoft.AspNetCore.Identity;
@@ -21,9 +21,8 @@ builder.Services.AddSession();
 
 
 builder.Services.AddIdentity<UsuarioSistema, IdentityRole>()
-         .AddSignInManager<SignInManager<UsuarioSistema>>()
-  .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
+      .AddEntityFrameworkStores<AppDbContext>()
+            .AddDefaultTokenProviders();
 
 
 //builder.Services.AddScoped<UserManager<UsuarioSistema>>();

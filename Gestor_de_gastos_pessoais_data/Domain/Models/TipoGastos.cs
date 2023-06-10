@@ -10,5 +10,6 @@ namespace Gestor_de_gastos_pessoais_data.Domain.Models
     {
         public int Id { get; set; }
         public string? Descricao { get; set; }
+        public ICollection<Gastos>? gastos { get; set; }
     }
 }

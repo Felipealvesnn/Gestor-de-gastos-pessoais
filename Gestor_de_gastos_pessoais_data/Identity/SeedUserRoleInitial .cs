@@ -1,4 +1,4 @@
-﻿using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
+﻿using Gestor_de_gastos_pessoais_data.Domain.Interfaces.InterfacesIdentity;
 using Gestor_de_gastos_pessoais_data.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 

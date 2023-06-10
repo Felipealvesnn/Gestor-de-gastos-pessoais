@@ -3,9 +3,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Gestor_de_gastos_pessoais_data.Contexto;
 using Microsoft.EntityFrameworkCore;
 using Gestor_de_gastos_pessoais_data.Identity;
-using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
 using Gestor_de_gastos_pessoais_data.Domain.Models;
 using Microsoft.AspNetCore.Identity;
+using Gestor_de_gastos_pessoais_data.Domain.Interfaces.InterfacesIdentity;
+using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
+using Gestor_de_gastos_pessoais_data.Repository;
 
 namespace Gestor_de_gastos_pessoais_infra_ioc
 {
@@ -39,7 +41,11 @@ namespace Gestor_de_gastos_pessoais_infra_ioc
             });
             services.AddScoped<UserManager<UsuarioSistema>>();
             services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
+
             services.AddScoped<IAuthenticate, AuthenticateService>();
+            services.AddScoped<IGastosRepository, GastoRepository>();
+            services.AddScoped<ITipoGastosRepository, TipoGastosRepository>();
+            services.AddScoped<ILocalGastosRepository, LocalGastosRepository>();
 
 
             return services;

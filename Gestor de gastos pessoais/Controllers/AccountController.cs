@@ -1,5 +1,5 @@
 ﻿using Gestor_de_gastos_pessoais.VieswsModel;
-using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
+using Gestor_de_gastos_pessoais_data.Domain.Interfaces.InterfacesIdentity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gestor_de_gastos_pessoais.Controllers

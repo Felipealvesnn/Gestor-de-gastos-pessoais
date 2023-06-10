@@ -25,20 +25,28 @@ namespace Gestor_de_gastos_pessoais_data.EntitiesConfiguration
             builder.Property(g => g.Data)
                 .IsRequired();
 
+            builder.Property(g => g.TipoGastosId)
+                .IsRequired();
+
+            builder.Property(g => g.UsuarioSistemaId)
+                .IsRequired();
+
             builder.HasOne(g => g.LocalGasto)
                 .WithMany()
-                .HasForeignKey(g => g.LocalgastoId);
+                .HasForeignKey(g => g.LocalGastoid)
+                .HasConstraintName("FK_gastos_localGastos_LocalGastoid");
 
             builder.HasOne(g => g.tipoGastos)
                 .WithMany()
-                .HasForeignKey(g => g.TipogastoId);
+                .HasForeignKey(g => g.TipoGastosId)
+                .HasConstraintName("FK_gastos_tipoGastos_TipoGastosId");
 
             builder.HasOne(g => g.User)
                 .WithMany()
-                .HasForeignKey(g => g.UserId);
+                .HasForeignKey(g => g.UsuarioSistemaId)
+                .HasConstraintName("FK_gastos_AspNetUsers_UserId");
         }
     }
-
 
     public class TipoGastosConfiguration : IEntityTypeConfiguration<TipoGastos>
     {
@@ -51,6 +59,7 @@ namespace Gestor_de_gastos_pessoais_data.EntitiesConfiguration
                 .IsRequired();
         }
     }
+
     public class LocalGastoConfiguration : IEntityTypeConfiguration<LocalGasto>
     {
         public void Configure(EntityTypeBuilder<LocalGasto> builder)
@@ -60,7 +69,6 @@ namespace Gestor_de_gastos_pessoais_data.EntitiesConfiguration
             builder.Property(l => l.Descricao)
                 .HasMaxLength(100)
                 .IsRequired();
-
 
             builder.Property(l => l.Cnhpj)
                 .HasMaxLength(20);

@@ -11,5 +11,6 @@ namespace Gestor_de_gastos_pessoais_data.Domain.Models
     {
         public string whatsapp { get; set; }
         public string Endereco { get; set; }
+        public ICollection<Gastos> gastos { get; set; }
     }
 }

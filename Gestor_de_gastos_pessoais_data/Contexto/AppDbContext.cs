@@ -21,8 +21,9 @@ namespace Gestor_de_gastos_pessoais_data.Contexto
             builder.ApplyConfiguration(new GastosConfiguration());
             builder.ApplyConfiguration(new TipoGastosConfiguration());
             builder.ApplyConfiguration(new LocalGastoConfiguration());
-            base.OnModelCreating(builder);
+       
             builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+            base.OnModelCreating(builder);
 
         }
     }
