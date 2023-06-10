@@ -4,6 +4,8 @@ using Gestor_de_gastos_pessoais_data.Contexto;
 using Microsoft.EntityFrameworkCore;
 using Gestor_de_gastos_pessoais_data.Identity;
 using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
+using Gestor_de_gastos_pessoais_data.Domain.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Gestor_de_gastos_pessoais_infra_ioc
 {
@@ -35,7 +37,7 @@ namespace Gestor_de_gastos_pessoais_infra_ioc
             {
                 options.ExpireTimeSpan = TimeSpan.FromHours(4);
             });
-
+            services.AddScoped<UserManager<UsuarioSistema>>();
             services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
             services.AddScoped<IAuthenticate, AuthenticateService>();
 

@@ -17,7 +17,7 @@ namespace Gestor_de_gastos_pessoais_data.Identity
 
         public async Task<UsuarioSistema?> Authenticate(string UserNaame, string password)
         {
-            var user = await _usermanager.FindByNameAsync(UserNaame.ToUpper());
+            var user = await _usermanager.FindByNameAsync(UserNaame);
           
             if( user != null) {
 
@@ -32,7 +32,7 @@ namespace Gestor_de_gastos_pessoais_data.Identity
         {
             var aplicacaodousuario = new UsuarioSistema
             {
-                UserName = usename.ToUpper(),
+                UserName = usename,
                 Email = email,
             };
             
