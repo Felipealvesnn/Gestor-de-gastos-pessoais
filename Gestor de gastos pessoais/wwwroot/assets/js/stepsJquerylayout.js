@@ -21,7 +21,7 @@ $(function () {
                             debug: false,
                             newestOnTop: false,
                             progressBar: false,
-                            positionClass: 'toast-center-center',
+                            positionClass: 'toast-top-center',
                             preventDuplicates: false,
                             showDuration: '300',
                             hideDuration: '1000',
@@ -31,7 +31,7 @@ $(function () {
                         };
 
 
-                        toastr.warning('Selecione uma opção');
+                        toastr.warning('Selecione uma opcao');
 
                         return false;
                     }
