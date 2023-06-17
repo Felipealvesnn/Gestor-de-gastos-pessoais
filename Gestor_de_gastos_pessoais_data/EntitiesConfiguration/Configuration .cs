@@ -25,12 +25,6 @@ namespace Gestor_de_gastos_pessoais_data.EntitiesConfiguration
             builder.Property(g => g.Data)
                 .IsRequired();
 
-            builder.Property(g => g.TipoGastosId)
-                .IsRequired();
-
-            builder.Property(g => g.UsuarioSistemaId)
-                .IsRequired();
-
             builder.HasOne(g => g.LocalGasto)
                 .WithMany()
                 .HasForeignKey(g => g.LocalGastoid)
@@ -39,10 +33,12 @@ namespace Gestor_de_gastos_pessoais_data.EntitiesConfiguration
             builder.HasOne(g => g.tipoGastos)
                 .WithMany()
                 .HasForeignKey(g => g.TipoGastosId)
+                .IsRequired()
                 .HasConstraintName("FK_gastos_tipoGastos_TipoGastosId");
 
             builder.HasOne(g => g.User)
                 .WithMany()
+                .IsRequired()
                 .HasForeignKey(g => g.UsuarioSistemaId)
                 .HasConstraintName("FK_gastos_AspNetUsers_UserId");
         }

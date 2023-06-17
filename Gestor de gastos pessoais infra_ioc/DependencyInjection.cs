@@ -13,7 +13,7 @@ namespace Gestor_de_gastos_pessoais_infra_ioc
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection ConfiguraçãoServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection ConfiguracaoServices(this IServiceCollection services, IConfiguration configuration)
         {
             // iniciano identity no banco
 

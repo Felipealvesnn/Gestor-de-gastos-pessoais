@@ -74,7 +74,7 @@ namespace Gestor_de_gastos_pessoais_data.Migrations
 
                     b.HasIndex("UsuarioSistemaId1");
 
-                    b.ToTable("gastos");
+                    b.ToTable("gastos", (string)null);
                 });
 
             modelBuilder.Entity("Gestor_de_gastos_pessoais_data.Domain.Models.LocalGasto", b =>
@@ -106,7 +106,7 @@ namespace Gestor_de_gastos_pessoais_data.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("localGastos");
+                    b.ToTable("localGastos", (string)null);
                 });
 
             modelBuilder.Entity("Gestor_de_gastos_pessoais_data.Domain.Models.TipoGastos", b =>
@@ -124,7 +124,7 @@ namespace Gestor_de_gastos_pessoais_data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tipoGastos");
+                    b.ToTable("tipoGastos", (string)null);
                 });
 
             modelBuilder.Entity("Gestor_de_gastos_pessoais_data.Domain.Models.UsuarioSistema", b =>

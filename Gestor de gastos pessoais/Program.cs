@@ -3,7 +3,8 @@ using Gestor_de_gastos_pessoais_data.Domain.Interfaces.InterfacesIdentity;
 using Gestor_de_gastos_pessoais_data.Domain.Models;
 using Gestor_de_gastos_pessoais_infra_ioc;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
+
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-builder.Services.ConfiguraçãoServices(builder.Configuration);
+builder.Services.ConfiguracaoServices(builder.Configuration);
 
 
 builder.Services.AddMemoryCache();
@@ -20,9 +21,11 @@ builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 
 
-builder.Services.AddIdentity<UsuarioSistema, IdentityRole>()
-      .AddEntityFrameworkStores<AppDbContext>()
-            .AddDefaultTokenProviders();
+
+builder.Services.AddIdentity<UsuarioSistema, Microsoft.AspNetCore.Identity.IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
 
 
 //builder.Services.AddScoped<UserManager<UsuarioSistema>>();
