@@ -11,27 +11,13 @@
 
 
 
-    <style>
-        :root {
-            --bs-modal-bg: #393333;
-        }
-
-    </style>
-
-
-
-  
-
-
-
-
 
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/assets/img/favicon.png">
 
     <title>
 
@@ -61,10 +47,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
     <!-- CSS Files -->
-
-
-
-    <link id="pagestyle" href="~/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+   <link id="pagestyle" href="~/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
 
 
     <!-- Material Icons -->
@@ -86,15 +69,13 @@
 
 
 
-
-
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
 
         <div class="sidenav-header d-flex align-items-center ">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0 d-flex align-items-center" href="@Url.Action("Index", "Home")">
+            <a class="navbar-brand m-0 d-flex align-items-center"  asp-area="" asp-controller="Home" asp-action="Index">
                 <span style="color: white;" class="material-symbols-outlined">home</span>
-                <span class="ms-1 font-weight-bold align-items-center m-0 text-white h5">Home</span>
+                <span class="ms-1 font-weight-bold align-items-center m-0 text-white h5">Home </span>
             </a>
         </div>
 
@@ -127,8 +108,8 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link text-white @(ViewContext.RouteData.Values["action"].ToString() == "Index" && ViewContext.RouteData.Values["controller"].ToString() == "Dashboard" ? "active bg-gradient-primary" : "")"
-                       href="@Url.Action("Index", "Dashboard")">
+                    <a class="nav-link text-white  @(ViewContext.RouteData.Values["action"].ToString() == "Index" && ViewContext.RouteData.Values["controller"].ToString() == "Dashboard" ? "active bg-gradient-primary" : "")"
+                       asp-area="" asp-controller="Dashboard" asp-action="Index">
 
 
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -149,10 +130,10 @@
                     </a>
 
                 </li>
-              @*  <img src="~/assets/img/down-arrow.svg" />*@
+
 
                 <li class="nav-item">
-                    <a class="nav-link text-white " href='@Url.Action("Index", "LocalGastosAdm", new { area = "Admin" })'>
+                    <a class="nav-link text-white " asp-area="Admin" asp-controller="LocalGastosAdm" asp-action="Index">
 
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">receipt_long</i>
@@ -218,7 +199,7 @@
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <li class="nav-item">
-                        <a class="nav-link text-white " asp-controller="Account" asp-action="Logout">
+                        <a class="nav-link text-white " asp-area="" asp-controller="Account" asp-action="Logout">
                             <span class="material-symbols-outlined">
                                 logout
                             </span>
@@ -230,7 +211,7 @@
                 else
                 {
                     <li class="nav-item">
-                        <a class="nav-link text-white " asp-controller="Account" asp-action="Login">
+                        <a class="nav-link text-white " asp-area="" asp-controller="Account" asp-action="Login">
 
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">login</i>
@@ -291,9 +272,7 @@
                             <input type="text" class="form-control">
                         </div>
 
-
                     </div>
-                  
                     <ul class="navbar-nav  justify-content-end">
                       
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -320,7 +299,7 @@
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="my-auto">
-                                                <img src="./assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                                                <img src="~/assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="text-sm font-weight-normal mb-1">
@@ -338,7 +317,7 @@
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="my-auto">
-                                                <img src="./assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                                                <img src="~/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="text-sm font-weight-normal mb-1">
@@ -598,7 +577,12 @@
     <script src="~/assets/js/material-dashboard.min.js?v=3.1.0"></script>
     <script src="~/assets/js/stepsjquerylayout.js"></script>
 
+    <style>
+        :root {
+            --bs-modal-bg: #393333;
+        }
 
+    </style>
 
 
 
@@ -607,27 +591,11 @@
 
 
     <script>
-
-        $(document).ready(function () {
-            $('#dark-version').click(function () {
-                if ($(this).is(':checked')) {
-                    $('.modal-content').css('backgroundColor', '#202940');
-
-                    $('.modal .form-control').addClass('bg-white');
-
-
-                } else {
-                    $('#demo').css('backgroundColor', '');
-                }
-            });
-
-            $('#dark-version').trigger('click'); // Aciona o evento de clique no carregamento da página
+        document.getElementById('dark-version').addEventListener('click', function () {
+            document.documentElement.style.setProperty('--bs-modal-bg', '#393333');
         });
 
-
-      
-
-
+        document.getElementById('dark-version').click();
 
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -643,7 +611,7 @@
 
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="./assets/js/material-dashboard.min.js?v=3.1.0"></script>
+    <script src="~/assets/js/material-dashboard.min.js?v=3.1.0"></script>
 </body>
 
 </html>

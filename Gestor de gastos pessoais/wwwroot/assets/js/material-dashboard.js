@@ -211,6 +211,7 @@ function sidebarType(a) {
       textDarks[i].classList.add('text-white');
       textDarks[i].classList.remove('text-dark');
     }
+      document.documentElement.style.setProperty('--bs-modal-bg', '#393333');
   }
 
   // Remove logo-white/logo-dark
@@ -688,7 +689,8 @@ function darkMode(el) {
   const card_border = document.querySelectorAll('.card.border');
   const card_border_dark = document.querySelectorAll('.card.border.border-dark');
 
-  const svg = document.querySelectorAll('g');
+    const svg = document.querySelectorAll('g');
+
 
   if (!el.getAttribute("checked")) {
     body.classList.add('dark-version');
@@ -820,6 +822,11 @@ function darkMode(el) {
     for (var i = 0; i < card_border_dark.length; i++) {
       card_border_dark[i].classList.remove('border-dark');
     }
+
+      for (var i = 0; i < form_controls.length; i++) {
+          form_controls[i].classList.add('bg-white');
+      }
+
     el.removeAttribute("checked");
   }
 };

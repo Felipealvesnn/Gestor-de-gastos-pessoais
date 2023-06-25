@@ -8,9 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\AreaAdm\**" />
     <Compile Remove="wwwroot\lib\**" />
+    <Content Remove="Areas\AreaAdm\**" />
     <Content Remove="wwwroot\lib\**" />
+    <EmbeddedResource Remove="Areas\AreaAdm\**" />
     <EmbeddedResource Remove="wwwroot\lib\**" />
+    <None Remove="Areas\AreaAdm\**" />
     <None Remove="wwwroot\lib\**" />
   </ItemGroup>
 
@@ -20,11 +24,15 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Gestor de gastos pessoais infra_ioc\Gestor_de_gastos_pessoais_infra_ioc.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\js\plugins\" />
   </ItemGroup>
 
 </Project>

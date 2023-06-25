@@ -13,7 +13,8 @@ namespace Gestor_de_gastos_pessoais_data.Domain.Models
         public int Id { get; set; }
         public string? Descricao { get; set; }
         public double Valor { get; set; }
-        public DateTime Data { get; set; }
+        public DateTime DataCadastrado { get; set; }
+        public DateTime DataGasto { get; set; }
         public int LocalGastoid { get; set; }
         [ForeignKey("LocalGastoid")]
         public LocalGasto? LocalGasto { get; set; }

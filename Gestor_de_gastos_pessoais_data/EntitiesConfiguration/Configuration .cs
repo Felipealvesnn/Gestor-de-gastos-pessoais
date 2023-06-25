@@ -22,8 +22,10 @@ namespace Gestor_de_gastos_pessoais_data.EntitiesConfiguration
             builder.Property(g => g.Valor)
                 .IsRequired();
 
-            builder.Property(g => g.Data)
+            builder.Property(g => g.DataGasto)
                 .IsRequired();
+            builder.Property(g => g.DataCadastrado)
+               .IsRequired();
 
             builder.HasOne(g => g.LocalGasto)
                 .WithMany()
