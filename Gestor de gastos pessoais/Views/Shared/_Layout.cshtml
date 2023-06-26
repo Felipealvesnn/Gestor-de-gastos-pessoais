@@ -16,6 +16,9 @@
             --bs-modal-bg: #393333;
         }
 
+        .dark-version .form-control .modal{
+            color: rgb(0 0 0) !important;
+        }
     </style>
 
 
@@ -64,8 +67,8 @@
 
 
 
-    <link id="pagestyle" href="~/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
-
+   @* <link id="pagestyle" href="~/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />*@
+    <link href="~/assets/css/material-dashboard.css" rel="stylesheet" />
 
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
@@ -613,11 +616,30 @@
                 if ($(this).is(':checked')) {
                     $('.modal-content').css('backgroundColor', '#202940');
 
+                    $('#modalLocal').css('color', '#202940');
+
                     $('.modal .form-control').addClass('bg-white');
 
 
                 } else {
                     $('#demo').css('backgroundColor', '');
+                }
+            });
+
+
+            $('#modalgastosalve').on('click', async function (e) {
+                e.preventDefault();
+                console.log('teste');
+                const formData = $('#modalLocal').serializeArray().reduce((acc, { name, value }) => {
+                    acc[name] = value;
+                    return acc;
+                }, {});
+                try {
+
+                    const result = await $.post('@Url.Action("Create", "LocalGastosAdm", new { area = "Admin" })', { model: formData });
+                    console.log(result);
+                } catch (error) {
+                    console.log(error.responseText);
                 }
             });
 

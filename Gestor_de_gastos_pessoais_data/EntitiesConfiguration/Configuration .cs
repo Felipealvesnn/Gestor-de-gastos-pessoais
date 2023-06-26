@@ -67,6 +67,10 @@ namespace Gestor_de_gastos_pessoais_data.EntitiesConfiguration
             builder.Property(l => l.Descricao)
                 .HasMaxLength(100)
                 .IsRequired();
+            builder.Property(l => l.Logradouro)
+              .HasMaxLength(100);
+            builder.Property(l => l.Numero)
+                .HasMaxLength(10);
 
             builder.Property(l => l.Cnhpj)
                 .HasMaxLength(20);

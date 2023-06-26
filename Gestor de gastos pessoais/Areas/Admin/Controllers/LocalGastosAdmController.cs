@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Gestor_de_gastos_pessoais_data.Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,8 +29,8 @@ namespace Gestor_de_gastos_pessoais.Areas.Admin.Controllers
 
         // POST: LocalGastosAdmController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(LocalGasto model)
         {
             try
             {

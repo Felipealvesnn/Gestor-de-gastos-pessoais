@@ -1,13 +1,11 @@
 ﻿@model Gestor_de_gastos_pessoais_data.Domain.Models.Gastos
 <style>
-  
-  
+
+
 
     .modal select {
-            color: black !important;
-        }
-
-   
+        color: black !important;
+    }
 
 </style>
 <div class="modal fade modal-xl" id="ModalGastos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -26,12 +24,12 @@
                         <li data-step-target="step2">Step 2</li>
                         <li data-step-target="step3">Step 3</li>
                     </ul>
-                    <div class="step-content py-3" >
+                    <div class="step-content py-3">
                         <div class="step-tab-panel py-3" data-step="step1">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-3 text-center">
                                     <label class="form-check-label font-weight-bold" for="selectsd">Selecione seu gasto</label>
-                                    <select asp-for="LocalGastoid"   class="select form-control-lg w-100" id="selectsd">
+                                    <select asp-for="LocalGastoid" class="select form-control-lg w-100" id="selectsd">
                                         <option value="">Selecione o tipo de gasto</option>
                                         @foreach (var tipoGasto in ViewBag.TiposGastos)
                                         {
@@ -53,7 +51,7 @@
                                                 <option value="@local.Id">@local.Descricao</option>
                                             }
                                         </select>
-                                        <div class="input-group-append px-1 m-0" >
+                                        <div class="input-group-append px-1 m-0">
                                             <button class="btn btn-primary m-0 h-100" type="button" data-bs-toggle="modal" data-bs-target="#ModalLocal">
                                                 <span class="material-symbols-outlined">
                                                     add
@@ -96,27 +94,38 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastrar Local </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="cadastrar_local">
+                <form method="POST" action="cadastrar_local" id="modalLocal">
+                    @Html.AntiForgeryToken()
                     <div class="mb-3">
                         <label asp-for="Descricao" class="form-label"></label>
                         <input asp-for="Descricao" class="form-control" required>
                         <span asp-validation-for="Descricao" class="text-danger"></span>
                     </div>
 
-                    <div class="mb-3">
-                        <label asp-for="LocalGasto.latitude" class="form-label"></label>
-                        <input asp-for="LocalGasto.latitude" class="form-control" step="any" required>
-                        <span asp-validation-for="LocalGasto.latitude" class="text-danger"></span>
-                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label asp-for="LocalGasto.Logradouro" class="form-label"></label>
+                            <input asp-for="LocalGasto.Logradouro" class="form-control">
+                            <span asp-validation-for="LocalGasto.Logradouro" class="text-danger"></span>
 
+                        </div>
+                        <div class="col-6">
+                            <label asp-for="LocalGasto.Numero" class="form-label"></label>
+                            <input asp-for="LocalGasto.Numero" class="form-control">
+                            <span asp-validation-for="LocalGasto.Numero" class="text-danger"></span>
+
+                        </div>
+                    
+                    </div>
+               
                     <div class="mb-3">
-                        <label asp-for="LocalGasto.longitude" class="form-label"></label>
-                        <input asp-for="LocalGasto.longitude" class="form-control" step="any" required>
-                        <span asp-validation-for="LocalGasto.longitude" class="text-danger"></span>
+                        <label asp-for="LocalGasto.Cnhpj" class="form-label"></label>
+                        <input asp-for="LocalGasto.Cnhpj" class="form-control">
+                        <span asp-validation-for="LocalGasto.Cnhpj" class="text-danger"></span>
                     </div>
 
                     <div class="mb-3">
@@ -137,8 +146,35 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#ModalGastos">Close</button>
-                <button type="button" class="btn btn-primary" >okay </button>
+                <button type="button" class="btn btn-primary" id="modalgastosalve">salvar </button>
             </div>
         </div>
     </div>
 </div>
+@section script {
+<script>
+    $(document).ready(async function () {
+            $('#modalgastosalve').on('click', async function (e) {
+            e.preventDefault();
+            console.log('teste');
+                const formData = $('#modalLocal').().reduce((acc, { name, value }) => {
+                    if (name.startsWith('LocalGasto.')) {
+                        name = name.replace('LocalGasto.', '');
+                    }
+                    acc[propertyName] = value;
+                    return acc;
+                }, {});
+
+            try {
+
+                    const result = await $.post('@Url.Action("Create", "LocalGastosAdm", new { area = "Admin" })', { model: formData, __RequestVerificationToken: formData.__RequestVerificationToken });
+                console.log(result);
+            } catch (error) {
+                console.log(error.responseText);
+            }
+        });
+    });
+
+</script>
+
+            }
