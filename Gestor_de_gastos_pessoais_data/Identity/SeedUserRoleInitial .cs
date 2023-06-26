@@ -31,7 +31,16 @@ namespace Gestor_de_gastos_pessoais_data.Identity
                 IdentityResult result = _userManager.CreateAsync(user, "Numsey#2021").Result;
                 if (result.Succeeded)
                 {
-                    _userManager.AddToRoleAsync(user, "User").Wait();
+                    try
+                    {
+                        _userManager.AddToRoleAsync(user, "User").Wait();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw;
+                    }
+                 
                 }
             }
             if (_userManager.FindByEmailAsync("admin@localhost").Result == null)

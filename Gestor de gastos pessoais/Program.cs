@@ -26,7 +26,16 @@ builder.Services.AddIdentity<UsuarioSistema, Microsoft.AspNetCore.Identity.Ident
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
-
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Default Password settings.
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 3;
+    options.Password.RequiredUniqueChars = 1;
+});
 
 //builder.Services.AddScoped<UserManager<UsuarioSistema>>();
 
