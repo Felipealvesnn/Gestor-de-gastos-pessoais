@@ -29,7 +29,7 @@ namespace Gestor_de_gastos_pessoais.Areas.Admin.Controllers
 
         // POST: LocalGastosAdmController/Create
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(LocalGasto model)
         {
             try

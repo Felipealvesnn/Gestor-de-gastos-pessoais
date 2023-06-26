@@ -72,7 +72,7 @@
 
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,200" />>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,200" />
   
 
 
@@ -631,12 +631,15 @@
                 e.preventDefault();
                 console.log('teste');
                 const formData = $('#modalLocal').serializeArray().reduce((acc, { name, value }) => {
+                    if (name.startsWith('LocalGasto.')) {
+                        name = name.replace('LocalGasto.', '');
+                    }
                     acc[name] = value;
                     return acc;
                 }, {});
                 try {
 
-                    const result = await $.post('@Url.Action("Create", "LocalGastosAdm", new { area = "Admin" })', { model: formData });
+                    const result = await $.post('@Url.Action("Create", "LocalGastosAdm", new { area = "Admin" })', { model: formData, __RequestVerificationToken: formData.__RequestVerificationToken });
                     console.log(result);
                 } catch (error) {
                     console.log(error.responseText);

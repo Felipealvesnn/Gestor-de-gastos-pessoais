@@ -47,7 +47,16 @@ namespace Gestor_de_gastos_pessoais_infra_ioc
             services.AddScoped<ITipoGastosRepository, TipoGastosRepository>();
             services.AddScoped<ILocalGastosRepository, LocalGastosRepository>();
 
-
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Default Password settings.
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 3;
+                options.Password.RequiredUniqueChars = 1;
+            });
             return services;
         }
 
