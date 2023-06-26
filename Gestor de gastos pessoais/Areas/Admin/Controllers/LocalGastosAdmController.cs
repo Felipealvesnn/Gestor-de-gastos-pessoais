@@ -1,4 +1,6 @@
-﻿using Gestor_de_gastos_pessoais_data.Domain.Models;
+﻿using Gestor_de_gastos_pessoais_data.Domain.Interfaces;
+using Gestor_de_gastos_pessoais_data.Domain.Interfaces.InterfacesIdentity;
+using Gestor_de_gastos_pessoais_data.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +11,13 @@ namespace Gestor_de_gastos_pessoais.Areas.Admin.Controllers
     [Authorize("Admin")]
     public class LocalGastosAdmController : Controller
     {
+        private readonly ILocalGastosRepository _localGastosRepository;
+
+        public LocalGastosAdmController(ILocalGastosRepository localGastosRepository)
+        {
+            _localGastosRepository = localGastosRepository;
+        }
+
         // GET: LocalGastosAdmController
         public ActionResult Index()
         {
