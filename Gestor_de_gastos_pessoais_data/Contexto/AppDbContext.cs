@@ -18,7 +18,7 @@ namespace Gestor_de_gastos_pessoais_data.Contexto
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfiguration(new GastosConfiguration());
+            builder.ApplyConfiguration(new  GastosConfiguration());
             builder.ApplyConfiguration(new TipoGastosConfiguration());
             builder.ApplyConfiguration(new LocalGastoConfiguration());
        

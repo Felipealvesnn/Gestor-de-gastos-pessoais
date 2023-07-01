@@ -17,7 +17,7 @@ namespace Gestor_de_gastos_pessoais_data.Domain.Models
         public double longitude { get; set; }
         public string? Cnhpj { get; set; }
         public string? Telefone { get; set; }
-        public ICollection< Gastos> gastos { get; set; }
+        public ICollection<Gastos>? gastos { get; set; }
 
 
     }

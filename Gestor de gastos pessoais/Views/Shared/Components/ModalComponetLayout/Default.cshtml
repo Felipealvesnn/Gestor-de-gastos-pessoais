@@ -105,15 +105,26 @@
                         <input asp-for="Descricao" class="form-control" required>
                         <span asp-validation-for="Descricao" class="text-danger"></span>
                     </div>
+                    <div class="mb-3">
+                        <label asp-for="Descricao" class="form-label"></label>
+                        <input asp-for="Descricao" class="form-control" required>
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </div>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-9">
                             <label asp-for="LocalGasto.Logradouro" class="form-label"></label>
                             <input asp-for="LocalGasto.Logradouro" class="form-control">
                             <span asp-validation-for="LocalGasto.Logradouro" class="text-danger"></span>
 
                         </div>
-                        <div class="col-6">
+                        <div class="col-9">
+                            <label asp-for="LocalGasto.PontoReferencia" class="form-label"></label>
+                            <input asp-for="LocalGasto.PontoReferencia" class="form-control">
+                            <span asp-validation-for="LocalGasto.PontoReferencia" class="text-danger"></span>
+
+                        </div>
+                        <div class="col-3">
                             <label asp-for="LocalGasto.Numero" class="form-label"></label>
                             <input asp-for="LocalGasto.Numero" class="form-control">
                             <span asp-validation-for="LocalGasto.Numero" class="text-danger"></span>

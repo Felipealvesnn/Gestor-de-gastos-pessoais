@@ -27,7 +27,7 @@ builder.Services.AddSession(options =>
 
 
 
-builder.Services.AddIdentity<UsuarioSistema, Microsoft.AspNetCore.Identity.IdentityRole>()
+builder.Services.AddIdentity<UsuarioSistema, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
